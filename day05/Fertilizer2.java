@@ -75,9 +75,17 @@ public class Fertilizer2 {
                     if (seedRight >= rangeLeft) {
                         SimpleEntry<Long, Long> newSeed = new SimpleEntry<>(seedLeft, rangeLeft - 1);
                         seeds.add(newSeed);
+
+                        if (rangeRight < seedRight) {
+                            newSeed = new SimpleEntry<>(rangeRight + 1, seedRight);
+                            seeds.add(newSeed);
+                            seedRight = rangeRight - rangeLeft;
+                        } else {
+                            seedRight = seedRight - rangeLeft;
+                        }
                         
                         seedLeft = conversor.get(rangeLeft);
-                        seedRight = seedLeft + (seedRight - rangeLeft);	
+                        seedRight += seedLeft;	
                         break;
                     } else {
                         break;
