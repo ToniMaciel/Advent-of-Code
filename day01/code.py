@@ -13,5 +13,3 @@ with open("input.txt") as f:
                 break
         total_sum += code
     print(total_sum)
-
-            
